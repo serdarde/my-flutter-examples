@@ -11,7 +11,7 @@ class ScaffoldExample extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.playlist_play),
             tooltip: 'Air it',
-            onPressed: () => {},
+            onPressed: () => Navigator.pushNamed(context, "/firstPage"),
           ),
           IconButton(
             icon: Icon(Icons.playlist_add),
@@ -33,17 +33,23 @@ class ScaffoldExample extends StatelessWidget {
           crossAxisCount: 5,
           // Generate 100 Widgets that display their index in the List
           children: <Widget>[
-            new Container(
-              color: Colors.cyan,
-              margin: EdgeInsets.all(10.0),
-              alignment: Alignment.center,
-              child: Text(":)"),
+            new GestureDetector(
+              onTap: () => Navigator.pushNamed(context, "/firstPage"),
+              child: Container(
+                color: Colors.cyan,
+                margin: EdgeInsets.all(10.0),
+                alignment: Alignment.center,
+                child: Text(":)"),
+              ),
             ),
-            new Container(
-              color: Colors.cyan,
-              margin: EdgeInsets.all(10.0),
-              alignment: Alignment.center,
-              child: Text(":)"),
+            GestureDetector(
+              onDoubleTap: () => Navigator.pushNamed(context, "/firstPage"),
+              child: Container(
+                color: Colors.cyan,
+                margin: EdgeInsets.all(10.0),
+                alignment: Alignment.center,
+                child: Text(":)"),
+              ),
             ),
             new Container(
               color: Colors.cyan,
