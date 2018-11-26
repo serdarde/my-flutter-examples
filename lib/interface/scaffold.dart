@@ -30,16 +30,36 @@ class ScaffoldExample extends StatelessWidget {
         child: new GridView.count(
           // Create a grid with 2 columns. If you change the scrollDirection to
           // horizontal, this would produce 2 rows.
-          crossAxisCount: 5,
+          crossAxisCount: 2,
           // Generate 100 Widgets that display their index in the List
           children: <Widget>[
             new GestureDetector(
               onTap: () => Navigator.pushNamed(context, "/firstPage"),
               child: Container(
-                color: Colors.cyan,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage('https://scontent-frt3-2.cdninstagram.com/vp/1fa729d72a7f671b79166aa2c4343ee2/5C8D12DA/t51.2885-15/fr/e15/s1080x1080/45835041_619192898498236_5011079989747444985_n.jpg'),
+                    fit: BoxFit.cover,
+                  )
+                ),
                 margin: EdgeInsets.all(10.0),
-                alignment: Alignment.center,
-                child: Text(":)"),
+                alignment: Alignment.bottomCenter,
+                child: Transform(
+                  alignment: Alignment.bottomCenter,
+                  transform: Matrix4.skewY(0.0)..rotateZ(0.0),
+                  child: Container(
+                    padding: EdgeInsets.all(1.0),
+                    color: Color(0x77000000),
+                    width: 1400,
+                    child: new Text(
+                      "Flutter\nTutorial",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
             GestureDetector(
