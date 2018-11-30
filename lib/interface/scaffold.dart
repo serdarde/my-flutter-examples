@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ScaffoldExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var image2 =
+        "https://scontent-frt3-2.cdninstagram.com/vp/1fa729d72a7f671b79166aa2c4343ee2/5C8D12DA/t51.2885-15/fr/e15/s1080x1080/45835041_619192898498236_5011079989747444985_n.jpg";
     return new Scaffold(
       backgroundColor: Colors.lightGreen.shade100,
       appBar: new AppBar(
@@ -38,8 +41,7 @@ class ScaffoldExample extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                image: NetworkImage(
-                    'https://scontent-frt3-2.cdninstagram.com/vp/1fa729d72a7f671b79166aa2c4343ee2/5C8D12DA/t51.2885-15/fr/e15/s1080x1080/45835041_619192898498236_5011079989747444985_n.jpg'),
+                image: NetworkImage(image2),
                 fit: BoxFit.cover,
               )),
               margin: EdgeInsets.all(10.0),
@@ -71,13 +73,26 @@ class ScaffoldExample extends StatelessWidget {
               ),
             ),
           ),
-          new Container(
-            color: Colors.cyan,
-            margin: EdgeInsets.all(10.0),
-            alignment: Alignment.center,
-            child: FadeInImage.assetNetwork(
-              image: "https://scontent-frt3-2.cdninstagram.com/vp/1fa729d72a7f671b79166aa2c4343ee2/5C8D12DA/t51.2885-15/fr/e15/s1080x1080/45835041_619192898498236_5011079989747444985_n.jpg",
-              placeholder: "assets/gifs/loading.gif",
+          GestureDetector(
+            onTap: () {
+              Fluttertoast.showToast(
+                  msg: 'Yeah!',
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.BOTTOM);
+            },
+            child: Container(
+              color: Colors.cyan,
+              margin: EdgeInsets.all(10.0),
+              alignment: Alignment.center,
+              child: Column(
+                children: <Widget>[
+                  Text('Toast Message'),
+                  FadeInImage.assetNetwork(
+                    image: image2,
+                    placeholder: "assets/gifs/loading.gif",
+                  ),
+                ],
+              ),
             ),
           ),
           new Container(
